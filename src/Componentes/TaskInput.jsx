@@ -4,6 +4,11 @@ function TaskInput (props){
     const [Articulo, setArticulo]=useState('');
     const [Precio, setPrecio]= useState(0);
     const handleSubmit=()=>{
+        const existe = Productos.some(producto => producto.Articulo.toLowerCase() === Articulo.toLowerCase());
+        if (existe) {
+            alert('Este artículo ya fue ingresado.');
+            return; // corto acá, no sigue agregando
+          }
         setProductos([...Productos, {Articulo:Articulo, Precio:Precio}]);
     } 
     return (

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import TaskInput from "./Componentes/TaskInput.jsx";
-import TaskItem from './Componentes/TaskItem.jsx';
+import TaskList from './Componentes/TaskList.jsx';
 function App() {
   const [Productos, setProductos]=useState([]);
 
@@ -8,7 +8,7 @@ function App() {
     <>
       <div>
         <TaskInput Productos={[Productos, setProductos]}></TaskInput>
-        <TaskItem Productos={Productos}></TaskItem>
+        <TaskList Productos={Productos}></TaskList>
       </div>
     </>
   )
