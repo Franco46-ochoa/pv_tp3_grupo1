@@ -4,7 +4,7 @@ function TaskInput (props){
     const [Articulo, setArticulo]=useState('');
     const [Precio, setPrecio]= useState(0);
     const handleSubmit=()=>{
-        const existe = Productos.some(producto => producto.Articulo.toLowerCase() === Articulo.toLowerCase());
+        const existe = Productos.some(producto => producto.Articulo.toLowerCase() === Articulo.toLowerCase()); // verificamos si exciste el articulo y  sin importar si están en mayúsculas o minúsculas)
         if (existe) {
             alert('Este artículo ya fue ingresado.');
             return; // corto acá, no sigue agregando
