@@ -1,22 +1,19 @@
 import React, { useState } from 'react';
+import { marcarComoVendido } from '../js/vendido';
+import { eliminarProducto } from '../js/eliminar';
 
 function TaskList({ Productos, setProductos }) {
-  const [vendidos, setVendidos] = useState([]); // índices de productos vendidos
+  const [vendidos, setVendidos] = useState([]);
 
-  // Tachar producto (vendido)
-  const marcarComoVendido = (index) => {
-    if (!vendidos.includes(index)) {
-      setVendidos([...vendidos, index]);
-    }
+  const handleVendido = (index) => {
+    const nuevosVendidos = marcarComoVendido(index, vendidos);
+    setVendidos(nuevosVendidos);
   };
 
-  // Eliminar producto
-  const eliminarProducto = (index) => {
-    const nuevosProductos = Productos.filter((_, i) => i !== index);
+  const handleEliminar = (index) => {
+    const { nuevosProductos, nuevosVendidos } = eliminarProducto(index, Productos, vendidos);
     setProductos(nuevosProductos);
-
-    // También actualizamos la lista de vendidos
-    setVendidos(vendidos.filter((i) => i !== index));
+    setVendidos(nuevosVendidos);
   };
 
   return (
@@ -26,8 +23,8 @@ function TaskList({ Productos, setProductos }) {
         {Productos.map((producto, index) => (
           <li key={index} style={vendidos.includes(index) ? { textDecoration: 'line-through' } : {}}>
             Descripción: {producto.descripcion} - Precio: ${producto.precio}
-            <button onClick={() => marcarComoVendido(index)}>Vendido</button>
-            <button onClick={() => eliminarProducto(index)}>Eliminar</button>
+            <button onClick={() => handleVendido(index)}>Vendido</button>
+            <button onClick={() => handleEliminar(index)}>Eliminar</button>
           </li>
         ))}
       </ul>
