@@ -21,9 +21,7 @@ function TaskItem({ Productos }) { // Recibe la lista de Productos como prop
     <div>
       <label>Buscar Articulo</label>
       <input
-        type="text"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
+        type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)}
       />
       <button type="button" onClick={handleSubmit}>
         Buscar
@@ -31,8 +29,8 @@ function TaskItem({ Productos }) { // Recibe la lista de Productos como prop
 
       {productoEncontrado && (
         <h3>
-          Artículo: {productoEncontrado.Articulo} - Precio: $
-          {productoEncontrado.Precio}
+          Artículo: {productoEncontrado.descripcion} - Precio: $
+          {productoEncontrado.precio}
         </h3>
       )}
     </div>
