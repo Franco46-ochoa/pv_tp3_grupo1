@@ -15,7 +15,7 @@ function App() {
     <>
       <div>
         <TaskInput Productos={[Productos, setProductos]}></TaskInput>
-        <TaskList Productos={Productos}></TaskList>
+        <TaskList Productos={[Productos, setProductos]}></TaskList>
         <TaskItem Productos={Productos}></TaskItem>
       </div>
     </>
