@@ -20,9 +20,7 @@ function TaskItem({ Productos }) {
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
       />
-      <button type="button" onClick={handleSubmit}>
-        Buscar
-      </button>
+      <button type="button" onClick={handleSubmit}> Buscar </button>
 
       {productoEncontrado && (
         <h3>
