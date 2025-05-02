@@ -1,5 +1,5 @@
 export function buscarProducto(productos, nombreArticulo) {
-    return productos.find(
-      (producto) => producto.Articulo.toLowerCase() === nombreArticulo.toLowerCase()
-    );
-  }
+  return productos.find(
+    (producto) => producto.descripcion.toLowerCase() === nombreArticulo.toLowerCase()
+  );
+}
