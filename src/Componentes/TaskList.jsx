@@ -56,6 +56,18 @@ function TaskList({ Productos, setProductos }) {
     });
   };
 
+  const ordenarProductos = () => {
+    const productosOrdenados = [...Productos].sort((a, b) => a.precio - b.precio);
+    console.log(
+      '\n4- Array de productos ordenado por precio (de menor a mayor):',
+    );
+    productosOrdenados.forEach((producto) => {
+      console.log(
+        `Producto: ${producto.descripcion} - Precio:$${producto.precio}`,
+      );
+    });
+  };
+
 
 
 
@@ -77,6 +89,7 @@ function TaskList({ Productos, setProductos }) {
       <button onClick={() => mostrarProductos()}>Mostrar Productos</button>
       <button onClick={() => mayoresA20()}>Precios mayores a $20</button>
       <button onClick={() => preciosMasIVA()}>Precios mas IVA</button>
+      <button onClick={()=> ordenarProductos()}>Ordenar productos por precio</button>
     </div>
   );
 }
