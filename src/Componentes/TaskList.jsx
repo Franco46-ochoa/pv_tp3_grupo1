@@ -68,11 +68,15 @@ function TaskList({ Productos, setProductos }) {
     });
   };
 
+  const agregarAlFinal = () => {
+    console.log('\nArray antes de agregar nuevo producto:');
+    console.log(Productos);
+    Productos.push({ descripcion: 'Parlante Bluetooth', precio: 59000.9 });
+    console.log('\nArray después de agregar nuevo producto:');
+    console.log(Productos);
+  }
 
-
-
-
-
+  
   return (
     <div>
       <h2>Lista de Productos</h2>
@@ -89,7 +93,9 @@ function TaskList({ Productos, setProductos }) {
       <button onClick={() => mostrarProductos()}>Mostrar Productos</button>
       <button onClick={() => mayoresA20()}>Precios mayores a $20</button>
       <button onClick={() => preciosMasIVA()}>Precios mas IVA</button>
-      <button onClick={()=> ordenarProductos()}>Ordenar productos por precio</button>
+      <button onClick={() => ordenarProductos()}>Ordenar productos por precio</button>
+      <button onClick={() => agregarAlFinal()}>Agregar producto</button>
+      <button onClick={() => eliminarPrecioMasBajo()}>Eliminar precio mas bajo</button>
     </div>
   );
 }
