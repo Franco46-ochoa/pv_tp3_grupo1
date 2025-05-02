@@ -25,16 +25,19 @@ function TaskList({ Productos, setProductos }) {
   };
 
   const mostrarProductos = () => {
-    console.log('Productos actuales:');
+    console.log('1- Mostrar productos:');
     Productos.forEach((producto) => {
       console.log(`Producto: ${producto.descripcion} - Precio:$${producto.precio}`);
     });
   };
 
-/* console.log('1- Mostrar cada producto:');
-productos.forEach((producto) => {
-  console.log(`Producto: ${producto.descripcion} - Precio:$${producto.precio}`);
-}); */
+  const mayoresA20 = () => {
+    const productosMayorA20 = Productos.filter((producto) => producto.precio > 20);
+    console.log('\n2- Productos con precio mayor a $20:');
+    productosMayorA20.forEach((producto) => {
+      console.log(`Producto: ${producto.descripcion} - Precio:$${producto.precio}`);
+    });
+  };
 
   return (
     <div>
@@ -50,6 +53,7 @@ productos.forEach((producto) => {
         ))}
       </ul>
       <button onClick={() => mostrarProductos()}>Mostrar Productos</button>
+      <button onClick={() => mayoresA20()}>Precios mayores a $20</button>
     </div>
   );
 }
