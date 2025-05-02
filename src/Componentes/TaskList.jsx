@@ -33,7 +33,7 @@ function TaskList({ Productos, setProductos }) {
 
   const mayoresA20 = () => {
     const productosMayorA20 = Productos.filter((producto) => producto.precio > 20);
-    console.log('\n2- Productos con precio mayor a $20:');
+    console.log('2- Productos con precio mayor a $20:');
     productosMayorA20.forEach((producto) => {
       console.log(`Producto: ${producto.descripcion} - Precio:$${producto.precio}`);
     });
@@ -46,7 +46,7 @@ function TaskList({ Productos, setProductos }) {
         precioConIVA: producto.precio * 1.21,
       };
     });
-    console.log('\n3- Productos con IVA incluido (21%):');
+    console.log('3- Productos con IVA incluido (21%):');
     productosConIVA.forEach((producto) => {
       console.log(
         `Producto: ${
@@ -59,7 +59,7 @@ function TaskList({ Productos, setProductos }) {
   const ordenarProductos = () => {
     const productosOrdenados = [...Productos].sort((a, b) => a.precio - b.precio);
     console.log(
-      '\n4- Array de productos ordenado por precio (de menor a mayor):',
+      '4- Array de productos ordenado por precio (de menor a mayor):',
     );
     productosOrdenados.forEach((producto) => {
       console.log(
@@ -69,14 +69,21 @@ function TaskList({ Productos, setProductos }) {
   };
 
   const agregarAlFinal = () => {
-    console.log('\nArray antes de agregar nuevo producto:');
-    console.log(Productos);
     Productos.push({ descripcion: 'Parlante Bluetooth', precio: 59000.9 });
-    console.log('\nArray después de agregar nuevo producto:');
-    console.log(Productos);
+    console.log('5- Agregar nuevo producto al final del array:');
+    mostrarProductos();
   }
 
-  
+  const eliminarPrecioMasBajo = () => {
+    console.log('6- Eliminar producto con el precio mas bajo:');
+    const precioMinimo = Math.min(...Productos.map((p) => p.precio));
+    const indiceProductoMinimo = Productos.findIndex(
+      (p) => p.precio === precioMinimo,
+    );
+    Productos.splice(indiceProductoMinimo, 1);
+    mostrarProductos();
+  }
+
   return (
     <div>
       <h2>Lista de Productos</h2>
