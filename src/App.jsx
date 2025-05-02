@@ -7,6 +7,7 @@ import Header from './Componentes/Header.jsx';
 import Footer from './Componentes/Footer.jsx';
 import Titulo from './Componentes/Titulo.jsx';
 import TareaInput from './Componentes/TareaInput.jsx';
+import TareaList from './Componentes/TareaList.jsx';
 
 function App() {
   const [tareas, setTareas] = useState([
@@ -28,8 +29,9 @@ function App() {
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Header></Header>
         <Titulo titulo={'Lista de Tareas'}></Titulo>
-
         <TareaInput tareas={[tareas, setTareas]}></TareaInput>
+        <TareaList tareas={tareas} setTareas={setTareas}></TareaList>
+
         <Titulo titulo={'Listado de Productos'}></Titulo>
         <TaskInput Productos={[Productos, setProductos]}></TaskInput>
         <TaskList Productos={Productos} setProductos={setProductos}></TaskList>
