@@ -39,6 +39,28 @@ function TaskList({ Productos, setProductos }) {
     });
   };
 
+  const preciosMasIVA = () => {
+    const productosConIVA = Productos.map((producto) => {
+      return {
+        ...producto,
+        precioConIVA: producto.precio * 1.21,
+      };
+    });
+    console.log('\n3- Productos con IVA incluido (21%):');
+    productosConIVA.forEach((producto) => {
+      console.log(
+        `Producto: ${
+          producto.descripcion
+        } - Precio:$${producto.precioConIVA.toFixed(2)}`,
+      );
+    });
+  };
+
+
+
+
+
+
   return (
     <div>
       <h2>Lista de Productos</h2>
@@ -54,6 +76,7 @@ function TaskList({ Productos, setProductos }) {
       </ul>
       <button onClick={() => mostrarProductos()}>Mostrar Productos</button>
       <button onClick={() => mayoresA20()}>Precios mayores a $20</button>
+      <button onClick={() => preciosMasIVA()}>Precios mas IVA</button>
     </div>
   );
 }
