@@ -23,6 +23,19 @@ function TaskList({ Productos, setProductos }) {
       console.log("Productos actualizados:", setProductos);
     }
   };
+
+  const mostrarProductos = () => {
+    console.log('Productos actuales:');
+    Productos.forEach((producto) => {
+      console.log(`Producto: ${producto.descripcion} - Precio:$${producto.precio}`);
+    });
+  };
+
+/* console.log('1- Mostrar cada producto:');
+productos.forEach((producto) => {
+  console.log(`Producto: ${producto.descripcion} - Precio:$${producto.precio}`);
+}); */
+
   return (
     <div>
       <h2>Lista de Productos</h2>
@@ -31,11 +44,12 @@ function TaskList({ Productos, setProductos }) {
           <li key={index} style={vendidos.includes(index) ? { textDecoration: 'line-through' } : {}}>
             Descripción: {producto.descripcion} - Precio: ${producto.precio}
             <button onClick={() => handleVendido(index)}>Vendido</button>
-            <button onClick={() => handleEliminar(index)}>Eliminar</button> 
+            <button onClick={() => handleEliminar(index)}>Eliminar</button>
             <button onClick={()=> handleModificar(index)}>Modificar</button>
           </li>
         ))}
       </ul>
+      <button onClick={() => mostrarProductos()}>Mostrar Productos</button>
     </div>
   );
 }

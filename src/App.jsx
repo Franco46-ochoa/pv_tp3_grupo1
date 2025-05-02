@@ -28,11 +28,11 @@ function App() {
     <>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Header></Header>
-        <Titulo titulo={'Lista de Tareas'}></Titulo>
+        <Titulo titulo={'TP3 1ra parte - Lista de Tareas'}></Titulo>
         <TareaInput tareas={[tareas, setTareas]}></TareaInput>
         <TareaList tareas={tareas} setTareas={setTareas}></TareaList>
 
-        <Titulo titulo={'Listado de Productos'}></Titulo>
+        <Titulo titulo={'TP3 2da parte - Listado de Productos'}></Titulo>
         <TaskInput Productos={[Productos, setProductos]}></TaskInput>
         <TaskList Productos={Productos} setProductos={setProductos}></TaskList>
         <TaskItem Productos={Productos}></TaskItem>
