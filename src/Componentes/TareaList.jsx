@@ -1,5 +1,18 @@
 function TareaList({ tareas, setTareas }) {
 
+  const tareaRealizada = (id) => {
+    setTareas((tareas) =>
+      tareas.map((tarea) =>
+        tarea.id === id ? { ...tarea, realizada: !tarea.realizada } : tarea,
+      ),
+    );
+  };
+
+  const eliminarTarea = (id) => {
+    const tareasActualizadas = tareas.filter((tarea) => tarea.id !== id);
+    setTareas([...tareasActualizadas]);
+  };
+
   return (
     <div>
       <ul>
@@ -11,8 +24,8 @@ function TareaList({ tareas, setTareas }) {
             }}
           >
             {tarea.tarea}
-            <button >Eliminar</button>
-            <button >Realizada</button>
+            <button onClick={() => eliminarTarea(tarea.id)}>Eliminar</button>
+            <button onClick={() => tareaRealizada(tarea.id)}>Realizada</button>
           </li>
         ))}
       </ul>
